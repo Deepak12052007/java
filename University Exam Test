@@ -1,23 +1,20 @@
 abstract class Exam {
     String examId;
-    String Subject;
+    String subject;
     double totalMarks;
     Exam(String examId, String Subject, double totalMarks) {
         this.examId = examId;
-        this.Subject = Subject;
+        this.subject = Subject;
         this.totalMarks = totalMarks;
     }
     abstract boolean evaluateResult();
     void displayResult() {
-        System.out.println("Exam Id      :"+examId); 
-        System.out.println("Subject Name :"+ Subject); 
-        System.out.println("Marks        :"+ totalMarks );
-        System.out.println("Result       :"+(evaluateResult() ? "Pass" : "Fail"));
-    }
+        System.out.println(examId+"1"+subject+"marks:"+totalMarks+"Result"+(evaluateResult()?"Pass":"Fail"));
+     }
 }
 class TheoryExam extends Exam {
-    TheoryExam(String examId, String Subject, double totalMarks) {
-        super(examId, Subject, totalMarks);
+    TheoryExam(String examId, String subject, double totalMarks) {
+        super(examId, subject, totalMarks);
     }
     @Override
     boolean evaluateResult() {
@@ -37,11 +34,7 @@ public class UniversityExamTest{
     public static void main(String[] args) {
         Exam theory = new TheoryExam("7101", "Maths", 45);
         Exam practical = new PracticalExam("P202", "Computer", 48);
-        System.out.println("Theory Exam");
         theory.displayResult();
-        System.out.println();
-        System.out.println("Practical Exam");
         practical.displayResult();
     }
 }
-
