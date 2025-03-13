@@ -20,19 +20,21 @@ class FullTimeEmployee extends Employee{
     public FullTimeEmployee(String name,int empId,double basicSalary){
         super(name,empId,basicSalary);
     }
+    @Override
     double calculateSalary(){
         return basicSalary+(0.2*basicSalary);
     }
 }
 class PartTimeEmployee extends Employee
 {
-    private double hourlyRate;
-    private int hoursWorked;
+    private final double hourlyRate;
+    private final int hoursWorked;
     public PartTimeEmployee(String name,int empId,double basicSalary,double hourlyRate,int hoursWorked){
         super(name,empId,basicSalary);
         this.hourlyRate=hourlyRate;
         this.hoursWorked=hoursWorked;
     }
+    @Override
     double calculateSalary(){
         return basicSalary+(hourlyRate*hoursWorked);
     }
