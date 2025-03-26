@@ -1,8 +1,8 @@
-abstract class BankAccount{
+abstract class Account{
     String accountNumber;
     String holderName;
     double balance;
-    public BankAccount(String accountNumber, String holderName, double balance){
+    public Account(String accountNumber, String holderName, double balance){
         this.accountNumber=accountNumber;
         this.holderName=holderName;
         this.balance=balance;
@@ -37,7 +37,7 @@ abstract class BankAccount{
         this.holderName = holderName;
     }
 }
-class SavingAccount extends BankAccount{
+class SavingAccount extends Account{
     public SavingAccount(String accountNumber, String holderName, double balance){
         super(accountNumber, holderName, balance);
     }
@@ -46,7 +46,7 @@ class SavingAccount extends BankAccount{
         return balance*0.2;
     }
 }
-class currentAccount extends BankAccount{
+class currentAccount extends Account{
     public currentAccount(String accountNumber, String holderName, double balance){
         super(accountNumber, holderName, balance);
     }
@@ -55,12 +55,12 @@ class currentAccount extends BankAccount{
         return balance*0.2;
     }
 }
-public class BankTest{
+public class Bankingsystem{
     public static void main(String[] args) {
-        BankAccount savings= new SavingAccount("SA123", "Charlie", 10000);
+        Account savings= new SavingAccount("SA123", "Charlie", 10000);
         System.out.println("Savings Account Interest: "+savings.calculateInterest());
         savings.withdraw(3000);
-        BankAccount current= new currentAccount("CA456", "David", 15000);
+        Account current= new currentAccount("CA456", "David", 15000);
         System.out.println("Current Account Inerest: "+current.calculateInterest());
         current.deposit(7000);
         current.withdraw(5000);
