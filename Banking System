@@ -57,12 +57,12 @@ class currentAccount extends Account{
 }
 public class Bankingsystem{
     public static void main(String[] args) {
-        Account savings= new SavingAccount("SA123", "Charlie", 10000);
+        Account savings= new SavingAccount("SA123", "Charlie", 500);
         System.out.println("Savings Account Interest: "+savings.calculateInterest());
-        savings.withdraw(3000);
-        Account current= new currentAccount("CA456", "David", 15000);
+        savings.withdraw(50);
+        Account current= new currentAccount("CA456", "David", 100);
         System.out.println("Current Account Inerest: "+current.calculateInterest());
-        current.deposit(7000);
-        current.withdraw(5000);
+        current.deposit(10);
+        current.withdraw(20);
     }
 }
