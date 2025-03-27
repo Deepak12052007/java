@@ -1,4 +1,4 @@
-abstract class Product{
+class Product{
     String productId;
     String productName;
     double price;
@@ -7,9 +7,13 @@ abstract class Product{
         this.productName=ProductName;
         this.price=Price;
     }
-    abstract double calculatediscountprice();
+    double calculatediscountprice(){
+        return 0;
+    }
     public void displayproductdetails(){
      System.out.println("Product Id       :"+productId);
+     System.out.println("Product Name     :"+productName);
+     
      System.out.println("Discounted price :"+calculatediscountprice());
     }
 }
@@ -24,22 +28,25 @@ class Electronics extends Product{
     }
 }
 class GroceryProducts extends Product{
-    public GroceryProducts(String ProductId,String ProductName,double Price){
+    public int weight;
+    public GroceryProducts(String ProductId,String ProductName,double Price,int weight){ 
         super(ProductId,ProductName,Price);
+        this.weight=weight;
     }
     @Override
     public double calculatediscountprice(){
-        double discount=price*0.05;
+        double discount=price*0.15;
+        System.out.println("Product Weight   :"+weight);
         return price=discount;
     }
 }
 public class OnlineShoppingTest{
     public static void main(String[] args){
         Product laptop=new Electronics("P100","Laptop",45000);
-        Product mango=new GroceryProducts("202","Tshirts",50);
+        Product mango=new GroceryProducts("202","Mango",500,2);
         System.out.println("Electronic Product");
         laptop.displayproductdetails();
-        System.out.println("/n Grocery Product");
+        System.out.println("s Grocery Product");
         mango.displayproductdetails();
     }
 }
