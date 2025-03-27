@@ -1,49 +1,49 @@
-abstract class Employee{
+ class Employee{
     String name;
     int empId;
     double basicSalary;
-    public Employee(String name,int empId,double basicSalary){
-        this.name=name;
-        this.empId=empId;
-        this.basicSalary=basicSalary;
-    
-    }
-    abstract double calculateSalary();
-    public void displaySalaryDetails(){
-        System.out.println("Employee Id:"+empId);
-        System.out.println("Name:"+name);
-        System.out.println("Salary:$" + calculateSalary());
-        System.out.println("----------------");
-    }
+ public Employee(String name,int empId,double basicSalary){
+      this.name=name;
+      this.empId=empId;
+      this.basicSalary=basicSalary;
+   }
+   double calculateSalary()
+{
+return 0;
+}
+   public void displaySalary(){
+   System.out.println("Employee Id:" +empId);
+   System.out.println("Employee Name:" +name);
+   System.out.println("Salary:" + calculateSalary());
+  }
 }
 class FullTimeEmployee extends Employee{
-    public FullTimeEmployee(String name,int empId,double basicSalary){
-        super(name,empId,basicSalary);
+  public FullTimeEmployee(String name,int empId,double basicSalary){
+       super(name,empId,basicSalary);
+     }
+      public double calculateSalary(){
+          return basicSalary +(0.2*basicSalary);
+      }
+ }
+class PartTimeEmployee extends Employee{
+    double hoursRate;
+    int hoursWorked;
+  public PartTimeEmployee(String name,int empId,double basicSalary,double hoursRate,int hoursWorked){
+       super(name,empId,basicSalary);
+       this.hoursRate=hoursRate;
+       this.hoursWorked=hoursWorked;
     }
-    @Override
-    double calculateSalary(){
-        return basicSalary+(0.2*basicSalary);
-    }
-}
-class PartTimeEmployee extends Employee
-{
-    private final double hourlyRate;
-    private final int hoursWorked;
-    public PartTimeEmployee(String name,int empId,double basicSalary,double hourlyRate,int hoursWorked){
-        super(name,empId,basicSalary);
-        this.hourlyRate=hourlyRate;
-        this.hoursWorked=hoursWorked;
-    }
-    @Override
-    double calculateSalary(){
-        return basicSalary+(hourlyRate*hoursWorked);
+    public double calculateSalary(){
+       return basicSalary + (hoursRate*hoursWorked);
     }
 }
 public class EmployeeManagementSystem{
-    public static void main(String[]args){
-        Employee emp1=new FullTimeEmployee("Alice",101,5000);
-        Employee emp2=new PartTimeEmployee("Bob",102,2000,20,15);
-        emp1.displaySalaryDetails();
-        emp2.displaySalaryDetails();
+     public static void main(String [] args){
+        Employee fullTimeEmp = new FullTimeEmployee("Joel Harris",206,100000);
+        Employee partTimeEmp = new PartTimeEmployee("Deepak",207,65000,500,10);
+           fullTimeEmp.displaySalary();
+           partTimeEmp.displaySalary();
     }
 }
+
+        
