@@ -19,7 +19,7 @@ class Vehicle{
     }
     class Car extends Vehicle{
         public Car(String vehicleNumber,String brand,double dailyRate){
-            super(vehicleNumber, brand, dailyRate);
+            super(vehicleNumber,brand,dailyRate);
         }
         @Override
         public double calculateRent(int days){
@@ -33,15 +33,16 @@ class Vehicle{
     @Override
     public double calculateRent(int days){
         double rent= dailyRate*days;
-        return rent=rent*0.10 ;
+        return rent=rent*0.10;
+     
     }
 }
 public class VehicleRentSystem{
     public static void main(String[]args){
-        Vehicle Car =new Car("car123","dodge",10000);
-        Vehicle Bike=new Bike("Bike456","RoyalEnfield",2000);
+        Vehicle Car =new Car("Car123","Dodge",10);
         System.out.println("Car Rental Details:");
         Car.RentalDetails(5);
+        Vehicle Bike=new Bike("Bike456","RoyalEnfield",20);
         System.out.println("\n Bike Rental Details:");
         Bike.RentalDetails(5);
     }
